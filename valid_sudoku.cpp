@@ -1,6 +1,5 @@
 // aint workingg
-
-
+// 14.07.2024 upd : still aint working, but so close (i wanna sleep n' green GH, cuz its 11 52 pm :D)
 
 class Solution {
 public:
@@ -30,36 +29,34 @@ public:
                         return false;
                     }
                 }
-            int i_cl = i;
-            int r_kef = 0;
-            int l_kef = 0;
-            
-            while (i_cl >= 0) {
+            //int i_cl = i;
+            int vertical_n = 0;
+            int horizontal_n = 0;
 
-                
-                r_kef+=3;
-                i_cl = i_cl - 1;
 
-                if (i_cl >= 0) {
-                    l_kef+=3;
-                    i_cl = i_cl - 1;
+            for (int i_cl = i; i_cl != 0; i_cl = i_cl - 1 ) {
+                if (vertical_n == 6) {
+                    horizontal_n+=3;
+                    vertical_n = 0;
                 }
-
-                
+                else {
+                    vertical_n+=3;
+                }
             }
-            int l = 0;
-            int r = 0;
-            while (l != 3 && r != 3) {
-                    if (board[l+l_kef][r+r_kef] != '.') {
-                    if (hMap_cube[board[l+l_kef][r+r_kef]] == false) {
-                        hMap_cube[board[l+l_kef][r+r_kef]] = true;
-                    } 
-                    else {
+            for (int k = 0; k != 3; k++) {
+                for (int p = 0; p != 3; p++) {
+                    if (board[k + horizontal_n][ p + vertical_n] != '.') {
+                        if (hMap_cube[board[k+horizontal_n][p+vertical_n]] == false) {
+                            hMap_cube[board[k+horizontal_n][p+vertical_n]] = true;
+                        }
+                    
+                        else {
+                        //ans = false;
                         return false;
+                        }
                     }
                 }
             }
-                
 
 
                 
